@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 
 const User = () => {
-  const ApiURL = 'https://jsonplaceholder.typicode.com/users';
+  const ApiURL = "https://jsonplaceholder.typicode.com/users";
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -15,7 +15,7 @@ const User = () => {
 
       const response = await fetch(ApiURL);
       if (!response.ok) {
-        throw new Error('Network response was not ok');
+        throw new Error("Network response was not ok");
       }
       const result = await response.json();
       console.log(result);
@@ -33,9 +33,9 @@ const User = () => {
 
   if (loading) {
     return (
-   <div className="flex items-center justify-center min-h-screen">
-  <div className="w-16 h-16 border-4 border-t-blue-500 border-r-blue-300 border-b-blue-100 border-l-blue-300 rounded-full animate-spin"></div>
-</div>
+      <div className="flex items-center justify-center min-h-screen">
+        <div className="w-16 h-16 border-4 border-t-blue-500 border-r-blue-300 border-b-blue-100 border-l-blue-300 rounded-full animate-spin"></div>
+      </div>
     );
   }
 
@@ -43,7 +43,10 @@ const User = () => {
     return (
       <div className="text-red-500 text-center mt-10">
         <h2>Error: {error.message}</h2>
-        <button onClick={fetchData} className="mt-4 px-4 py-2 bg-red-500 text-white rounded">
+        <button
+          onClick={fetchData}
+          className="mt-4 px-4 py-2 bg-red-500 text-white rounded"
+        >
           Retry
         </button>
       </div>
